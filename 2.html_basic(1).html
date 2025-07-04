@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Basic 1</title>
+</head>
+<!-- <body background="images/background.jpg"> -->
+<!-- <body style="background-color: aliceblue;"> -->
+
+<body>
+    <h2>글자 스타일링 예제</h2>
+    <!-- 인라인 스타일: 태그 안에 스타일 설정정 -->
+    <p style="color:rgb(23, 23, 163);">1. 글자색 변경</p>
+    <p style="background-color: beige;">2. 배경색 변경</p>
+    <p style="font-size: 20px;">3. 글자크기 변경</p>
+    <p style="background-color: aliceblue; font-size: 25; text-align: center;">4. 복합스타일링</p>
+
+    <h2>link와 이미지 삽입</h2>
+    <!-- _blank: 새탭으로 열기 -->
+    <div>
+        <a href="https://www.naver.com" target="_blank">네이버</a>
+    </div>
+    <div>
+        <a href="https://www.google.com" target="_blank">
+            <!-- alt: 이미지가 깨졌을 때 출력되는 대체 문자열, 시각장애인용 리더기에서 인식 -->
+            <img src="https://cdn-icons-png.flaticon.com/256/1295/1295546.png" alt="구글아이콘" width="160px" height="90px"
+                style="border: 3px solid black;">
+        </a>
+    </div>
+
+    <h2>리스트(ol - 순서가 있는, ul - 순서가 없는)</h2>
+    <ol style="list-style-type: upper-roman;">
+        <li>아이템A</li>
+        <li>아이템B</li>
+    </ol>
+    <ul style="list-style-type: square;">
+        <li>아이템A</li>
+        <ul>
+            <li>2번째</li>
+        </ul>
+        <li>아이템B</li>
+    </ul>
+
+    <h2>테이블 예제</h2>
+    <!-- tr: row -->
+    <table border="1" style="border-collapse: collapse;">
+        <caption>테이블 명</caption>
+        <thead>
+            <tr>
+                <th>컬럼1</th>
+                <th>컬럼2</th>
+            </tr>
+        </thead>
+        <!-- 실제 시스템에서는 td를 동적으로 두고 데이터를 백엔드로부터 json으로 수신하여 loop -->
+        <tbody>
+            <tr>
+                <td>1행 데이터1</td>
+                <td>1행 데이터2</td>
+            </tr>
+            <tr>
+                <td>2행 데이터1</td>
+                <td>2행 데이터3</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- 테이블 만들기 실습 -->
+    <!-- 테이블 명: post, 컬럼: id, title, contents, author_email -->
+    <table border="1" style="border-collapse: collapse;">
+        <caption style="font-size: 25px;"><b>post</b></caption>
+        <thead style="text-align: center;">
+            <tr>
+                <th>id</th>
+                <th>title</th>
+                <th>contents</th>
+                <th>author_email</th>
+            </tr>
+        </thead>
+        <tbody style="text-align: center;">
+            <tr>
+                <td>hong1</td>
+                <td>오늘 점심</td>
+                <td>오늘 점심은 맘스터치</td>
+                <td>hong1@naver.com</td>
+            </tr>
+            <tr>
+                <td>hong2</td>
+                <td>abc</td>
+                <td>abcdefghijklmnopqrstuvwxyz</td>
+                <td>hong2@naver.com</td>
+            </tr>
+            <tr>
+                <td>hong3</td>
+                <td>ㄱㄴㄷ</td>
+                <td>ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ</td>
+                <td>hong3@naver.com</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+</body>
+
+</html>

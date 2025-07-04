@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML BASIC 2</title>
+</head>
+
+<body>
+    <h2>회원가입 form 예제</h2>
+
+    <!-- 데이터 형식 2가지 1. url인코딩 2. multipart/formdata -->
+    <!-- form 내 파일까지 포함하는 경우 multipart/formdata 사용 -->
+    <form action="https://naver.com" method="post" enctype="application/x-www-form-urlencoded">
+        <!-- url 인코딩: name="hong"&email="hong@naver.com" -->
+        <!-- json 형식은 순수 html만으론 불가, js를 통해 조립립 -->
+        <!-- json: name="hong", email="hong@naver.com" -->
+        <div>
+            <!-- label의 for는 input의 id를 찾아 매핑 -->
+            <label for="userName">이름</label>
+            <input type="text" id="userName" name="name">
+        </div>
+        <div>
+            <label for="email">이메일</label>
+            <input type="email" id="email" name="email">
+        </div>
+
+        <div>
+            <label for="address">주소</label>
+            <!-- size: input 박스의 크기, maxlength: 입력가능글자의 수 -->
+            <!-- readonly: 수정불가(서버로 전송), disable: 수정불가(서버로 전송x) -->
+            <input type="text" id="address" name="address" size="30" maxlength="30" readonly>
+        </div>
+
+        <div>
+            <label for="password">비밀번호</label>
+            <input type="password" id="password" id="password">
+        </div>
+
+        <div>
+            <label for="gender">성별</label>
+            <input type="radio" name="gender" id="gender" value="mail" checked>남성
+            <input type="radio" name="gender" id="gender" value="femail">여성
+        </div>
+
+        <!-- 배열로 담겨 post -->
+        <div>
+            <label for="interests">관심사항</label>
+            <input type="checkbox" id="interests" name="interests" value="sports"> 스포츠
+            <input type="checkbox" id="interests" name="interests" value="music"> 음악
+            <input type="checkbox" id="interests" name="interests" value="reading"> 독서
+            <input type="checkbox" id="interests" name="interests" value="running"> 러닝
+        </div>
+
+        <div>
+            <label for="birthday">생일</label>
+            <input type="datetime-local" id="birthday" name="birthday">
+        </div>
+
+        <div>
+            <label for="age">나이</label>
+            <input type="number" id="age" name="age">
+        </div>
+
+        <div>
+            <label for="role">유저선택</label>
+            <select name="role" id="role">
+                <option value="admin">관리자</option>
+                <option value="guest">방문자</option>
+                <option value="user">일반유저</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="">증명사진 업로드</label>
+            <input type="file" name="progile_image" accept="image/*">
+        </div>
+
+        <div>
+            <label for="resume">자기소개</label>
+            <textarea name="resume" id="resume" rows="5" cols="30" placeholder="자기소개를 입력해 주세요."></textarea>
+        </div>
+        
+        <!-- form 태그에서 제출방식 2가지 1. input 태그, 2. button 태그 -->
+        <div>
+            <input type="submit" value="회원가입 input submit">
+        </div>
+        <button type="submit">회원가입 button submit</button>
+    </form>
+
+</body>
+
+</html>
