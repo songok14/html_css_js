@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js object</title>
+    <script>
+        function showObject() {
+            // js의 객체는 별도의 class가 필요하지 않음
+            let person = { name: "hong", email: "hong@naver.com", age: 30 };
+            // 객체 전체조회
+            console.log(person);
+            // 객체 특정 요소 조회 방법 1.
+            console.log(person.name);
+            // 객체 특정 요소 조회 방법 2.
+            console.log(person['name']);
+
+            // Object.keys(객체명): 객체의 키를 배열형태로 반환
+            const keyArr = Object.keys(person);
+            for (let i = 0; i < keyArr.length; i++) {
+                console.log(person[keyArr[i]]);
+            }
+            keyArr.forEach(k => console.log(person[k]));
+
+            // 객체의 변경
+            person.age = 20;
+            console.log(person);
+        }
+
+        function makeObject() {
+            // 객체 생성 방법 1. 리터럴 방식으로 생성
+            let person1 = { name: "hong", email: "hong@naver.com", age: 30 };
+
+            // 객체 생성 방법 2. 빈 객체 생성 후 키, 값을 추가
+            let person2 = {};
+            person2.name = "kim";
+            person2['email'] = "kim@naver.com";
+            person2.age = 30;
+            person2.password = "1234"
+            console.log(person2);
+
+            // 객체 생성 방법 3. 단축 속성명 방식: 키와 값이 동일하게 사용될 때 간편하게 객체 생성 방식
+            const name = "lee";
+            const age = 30;
+            const person3 = { name: name, age: age }; // 일반 객체 생성 방식
+            const person4 = { name, age }; // 단축 속성명
+
+            const obj1 = { key1: "values1" };
+            const obj2 = { obj1 };    // {obj1: {key1, object1}}
+            console.log(obj2);
+
+            // 스프레드 문법
+            const obj3 = { a: 1, b: 2 }
+            const obj4 = { ...obj3, c: 3 };
+            console.log(obj4);
+
+            const arr1 = [1,2,3];
+            const arr2 = [arr1, 4, 5];
+            console.log(arr2);
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <h2>javascript 객체</h2>
+    <button onclick="showObject()">객체 조회</button>
+    <button onclick="makeObject()">객체 생성</button>
+
+</body>
+
+</html>
