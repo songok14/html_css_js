@@ -18,7 +18,7 @@
                 <a href="../author/author_list.html" class="nav-link">회원 목록</a>
             </li>
             <li class="nav-item">
-                <a href="./post_list.html" class="nav-link">게시글 목록</a>
+                <a href="./post_list_external.html" class="nav-link">게시글 목록</a>
             </li>
             <li class="nav-item">
                 <a href="../author/author_register.html" class="nav-link">회원가입</a>
@@ -36,7 +36,6 @@
                 <tr>
                     <th>id</th>
                     <th>제목</th>
-                    <th>글쓴이</th>
                 </tr>
             </thead>
             <tbody id="postList">
@@ -46,9 +45,9 @@
 
     <script>
         async function getPost() {
-            const posts = await axios.get("https://jsonplaceholder.typicode.com/posts");
+            const posts = await axios.get("http://localhost:8080/post/list");
             for (let i = 0; i < posts.data.length; i++) {
-                const row = `<tr><td>${posts.data[i].id}</td><td>${posts.data[i].title}</td><td>${posts.data[i].userId}</td></tr>`;
+                const row = `<tr><td>${posts.data[i].id}</td><td>${posts.data[i].title}</td></tr>`;
                 document.getElementById("postList").innerHTML += row;
             }
         }
