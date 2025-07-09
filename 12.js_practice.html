@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기</title>
+</head>
+
+<body>
+    <input type="text" id="x" name="x">
+    <select name="cal" id="cal">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="X">X</option>
+        <option value="%">%</option>
+    </select>
+    <input type="text" id="y" name="y">
+    <button onclick="calculate()">실행</button>
+    <p id="result">결과값</p>
+
+    <script>
+        function calculate() {
+            const x = Number(document.getElementById("x").value);
+            const y = Number(document.getElementById("y").value);
+            const cal = document.getElementById("cal").value;
+            let result = document.getElementById("result");
+            if (cal == "+") {
+                result.innerHTML = x + y;
+            } else if (cal == "-") {
+                result.innerHTML = x - y;
+            } else if (cal == "X") {
+                result.innerHTML = x * y;
+            } else {
+                result.innerHTML = x / y;
+            }
+        }
+    </script>
+</body>
+
+</html>
