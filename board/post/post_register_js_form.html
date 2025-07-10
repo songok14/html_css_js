@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글쓰기</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar bg-dark navbar-dark navbar-expand-lg">
+        <a href="" class="navbar-brand mx-auto">게시판 서비스</a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="../author_list.html" class="nav-link">회원 목록</a>
+            </li>
+            <li class="nav-item">
+                <a href="../post/post_list_external.html" class="nav-link">게시글 목록</a>
+            </li>
+            <li class="nav-item">
+                <a href="../author/author_register_json.html" class="nav-link">회원가입</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h3>글쓰기</h3>
+        <form action="./post_list.html" method="post" enctype="application/x-www-form-urlencoded">
+            <div class="form-group">
+                <label for="title">제목 </label>
+                <input type="text" id="title" name="title" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="contents">내용 </label>
+                <textarea class="form-control" name="contents" id="contents" rows="10"></textarea>
+            </div>
+            <div><button type="button" onclick="postCreate()" class="btn btn-primary float-end">등록</button></div>
+        </form>
+    </div>
+    <script>
+        async function postCreate(){
+            try {
+                const title = document.getElementById("title").value;
+                const contents = document.getElementById("contents").value;
+                // js의 FormData 클래스를 통해 multipoart-formdata 형식의 데이터 조립
+                // formdata형식의 데이터는 title=hello&contents=hello world java...
+                const data = new FormData();
+                data.append("title", title);
+                data.append("contents", contents);
+
+                await axios.post("http://localhost:8080/post/register2", data);
+                window.location.href = "post_list_external.html";
+            } catch (e) {
+                alert("글 등록에 실패하였습니다.");
+            }
+        }
+    </script>
+</body>
+
+</html>
